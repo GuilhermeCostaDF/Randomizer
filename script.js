@@ -3,7 +3,6 @@ const addButton = document.getElementById('addButton');
 const randomizeButton = document.getElementById('randomButton');
 const arrayNames = [];
 
-
 const addNameOnList = () => {
     let name = document.getElementById('nameInput');
     
@@ -30,9 +29,7 @@ const showArray = () => {
     const shuffledArray = arrayNames.sort((a,b) => 0.5 - Math.random());
     
     //Laço para limpar o display 
-    for(i=listDisplay.length - 1; i>= 0; i--){
-        listDisplay.remove(i);
-    }
+    clearDisplay();
 
         //Laço para mostrar a nova ordem no display
         for(let i = 0; i< shuffledArray.length; i++ ){ 
@@ -44,6 +41,12 @@ const showArray = () => {
 
 const enterPressed = (event) => {
     if(event.keyCode === 13) addNameOnList();
+}
+
+const clearDisplay = () => {
+    for(i=listDisplay.length - 1; i>= 0; i--){
+        listDisplay.remove(i);
+    }
 }
 
 randomizeButton.addEventListener('click', showArray);

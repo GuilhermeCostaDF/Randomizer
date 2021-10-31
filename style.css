@@ -43,7 +43,11 @@ input{
     width: 80px;
 }
 
-button#randomButton {
+.buttonsDiv{
+    display: flex;
+}
+
+button#randomButton,button#resetButton {
 
     width: 40%;
     cursor: pointer;
@@ -58,25 +62,39 @@ button#randomButton {
     align-items: center;
     font-size: 15px;
     margin: 50px auto 10px auto;
-   }
+}
    
-   button#randomButton:hover {
+button#randomButton:hover {
     background: #a6c900;
-   }
+}
    
-   button#randomButton > svg {
+button#randomButton > svg {
     width: 34px;
     margin-left: 10px;
     transition: transform .3s ease-in-out;
-   }
+}
    
-   button#randomButton:hover svg {
+button#randomButton:hover svg  {
     transform: translateX(5px);
-   }
+}
    
-   button#randomButton:active {
+button#randomButton:active {
     transform: scale(0.95);
-   }
+}
+
+button#resetButton{
+    background-color: rgb(252, 84, 55);
+    text-align: center;
+}
+
+button#resetButton:hover{
+    background-color: rgb(238, 68, 38);
+}
+
+button span{
+    display: block;
+    margin: auto;
+}
 
 footer {
     color: #ffffff;
