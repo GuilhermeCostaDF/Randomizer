@@ -3,6 +3,7 @@ const addButton = document.getElementById('addButton');
 const randomizeButton = document.getElementById('randomButton');
 const arrayNames = [];
 
+
 const addNameOnList = () => {
     let name = document.getElementById('nameInput');
     
@@ -12,14 +13,11 @@ const addNameOnList = () => {
         for(let pos in arrayNames){
             pos++;
             item.text= `${pos}. ${name.value} `;
+            listDisplay.appendChild(item);
         }
-        listDisplay.appendChild(item);
         name.value ='';
         name.focus();
-    }
-
-    
-    else{
+    }else{
         alert("Digite um nome!");
         name.value ='';
         name.focus();
@@ -44,5 +42,10 @@ const showArray = () => {
         }
 }
 
+const enterPressed = (event) => {
+    if(event.keyCode === 13) addNameOnList();
+}
+
 randomizeButton.addEventListener('click', showArray);
 addButton.addEventListener('click', addNameOnList);
+document.addEventListener('keydown',  enterPressed);
