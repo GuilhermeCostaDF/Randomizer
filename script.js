@@ -1,7 +1,9 @@
 const listDisplay = document.getElementById('listDisplay');
 const addButton = document.getElementById('addButton');
 const randomizeButton = document.getElementById('randomButton');
+const resetDisplayButton = document.getElementById('resetButton');
 const arrayNames = [];
+let shuffledArray=[];
 
 const addNameOnList = () => {
     let name = document.getElementById('nameInput');
@@ -26,17 +28,19 @@ const addNameOnList = () => {
 const showArray = () => {
 
     //função para embaralhar o array
-    const shuffledArray = arrayNames.sort((a,b) => 0.5 - Math.random());
-    
-    //Laço para limpar o display 
-    clearDisplay();
+    shuffledArray = arrayNames.sort((a,b) => 0.5 - Math.random());
 
+    if(shuffledArray.length==0 || shuffledArray.length < 2){
+        alert('Impossível de embaralhar!');
+    }else{
+        clearDisplay();
         //Laço para mostrar a nova ordem no display
         for(let i = 0; i< shuffledArray.length; i++ ){ 
             let item = document.createElement('option');
             item.text= `${i+1}. ${shuffledArray[i]} `;  
             listDisplay.appendChild(item);  
         }
+    }
 }
 
 const enterPressed = (event) => {
@@ -44,11 +48,22 @@ const enterPressed = (event) => {
 }
 
 const clearDisplay = () => {
+    //Laço para limpar o display 
     for(i=listDisplay.length - 1; i>= 0; i--){
         listDisplay.remove(i);
     }
 }
 
+const resetDisplay = () => {
+    for(i=listDisplay.length - 1; i>= 0; i--){
+        listDisplay.remove(i);
+    }
+
+    shuffledArray.length =0;
+    arrayNames.length =0;
+}
+
 randomizeButton.addEventListener('click', showArray);
 addButton.addEventListener('click', addNameOnList);
 document.addEventListener('keydown',  enterPressed);
+resetDisplayButton.addEventListener('click',resetDisplay);
