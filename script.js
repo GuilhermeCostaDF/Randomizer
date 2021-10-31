@@ -2,8 +2,10 @@ const listDisplay = document.getElementById('listDisplay');
 const addButton = document.getElementById('addButton');
 const randomizeButton = document.getElementById('randomButton');
 const resetDisplayButton = document.getElementById('resetButton');
+const inputContainer = document.getElementById('timesShuffled');
 const arrayNames = [];
 let shuffledArray=[];
+let timesShuffled = 0;
 
 const addNameOnList = () => {
     let name = document.getElementById('nameInput');
@@ -33,13 +35,19 @@ const showArray = () => {
     if(shuffledArray.length==0 || shuffledArray.length < 2){
         alert('Impossível de embaralhar!');
     }else{
+
         clearDisplay();
         //Laço para mostrar a nova ordem no display
         for(let i = 0; i< shuffledArray.length; i++ ){ 
             let item = document.createElement('option');
             item.text= `${i+1}. ${shuffledArray[i]} `;  
             listDisplay.appendChild(item);  
-        }
+        }        
+
+        ++timesShuffled;
+        inputContainer.textContent = `Vezes embaralhada: ${timesShuffled} `;
+        console.log(timesShuffled);
+        
     }
 }
 
@@ -59,6 +67,8 @@ const resetDisplay = () => {
         listDisplay.remove(i);
     }
 
+    inputContainer.textContent ='';
+    timesShuffled =0;
     shuffledArray.length =0;
     arrayNames.length =0;
 }
