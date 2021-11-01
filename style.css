@@ -28,6 +28,10 @@ label{
     color: white;
 }
 
+select{
+    overflow: auto;
+}
+
 .inputDiv{
     margin-top: 20px;
     display: flex;
@@ -113,3 +117,22 @@ span.name{
     margin-top: 20px;
 }
 
+.timesToBeShuffled{
+    box-sizing: border-box;
+    position: relative;
+    padding: 10px;
+    margin: 10px;
+    width: 100%;
+    height: auto;  
+}
+
+.diceWrapper{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+img{
+    width: 100px;
+    height: 100px;
+}

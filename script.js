@@ -42,12 +42,12 @@ const showArray = () => {
             let item = document.createElement('option');
             item.text= `${i+1}. ${shuffledArray[i]} `;  
             listDisplay.appendChild(item);  
-        }        
+        }     
 
         ++timesShuffled;
-        inputContainer.textContent = `Vezes embaralhada: ${timesShuffled} `;
+        inputContainer.textContent = `Vezes embaralhadas: ${timesShuffled} `;
         console.log(timesShuffled);
-        
+
     }
 }
 
