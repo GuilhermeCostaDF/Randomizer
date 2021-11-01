@@ -51,8 +51,7 @@ input{
     display: flex;
 }
 
-button#randomButton,button#resetButton {
-
+button#randomButton,button#resetButton,button#timesToShuffle {
     width: 40%;
     cursor: pointer;
     font-weight: 600;
@@ -66,6 +65,18 @@ button#randomButton,button#resetButton {
     align-items: center;
     font-size: 15px;
     margin: 50px auto 10px auto;
+}
+
+button#timesToShuffle{
+    width: 80%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    background-color: #d4df3d;
+}
+
+button#timesToShuffle:hover{
+    background-color: #a0a748;
 }
    
 button#randomButton:hover {
@@ -135,4 +146,22 @@ span.name{
 img{
     width: 100px;
     height: 100px;
+}
+
+.shake{
+    animation: shake 0.5s infinite;
+}
+
+@keyframes shake{
+    0%{
+        transform: rotate(8deg);
+    }
+
+    50%{
+        transform: rotate(-8deg);
+    }
+
+    100%{
+        transform: rotate(8deg);
+    }
 }

@@ -3,9 +3,22 @@ const addButton = document.getElementById('addButton');
 const randomizeButton = document.getElementById('randomButton');
 const resetDisplayButton = document.getElementById('resetButton');
 const inputContainer = document.getElementById('timesShuffled');
+const timesToShuffleButton = document.getElementById('timesToShuffle');
 const arrayNames = [];
 let shuffledArray=[];
 let timesShuffled = 0;
+
+let imgs = [
+    "./imgs/dice1.svg",
+    "./imgs/dice2.svg",
+    "./imgs/dice3.svg",
+    "./imgs/dice4.svg",
+    "./imgs/dice5.svg",
+    "./imgs/dice6.svg",
+];
+
+let dice = document.querySelectorAll('img');
+
 
 const addNameOnList = () => {
     let name = document.getElementById('nameInput');
@@ -73,6 +86,25 @@ const resetDisplay = () => {
     arrayNames.length =0;
 }
 
+function roll() {
+    dice.forEach(function(die){
+        die.classList.add('shake');
+    });
+    setTimeout(function(){
+        dice.forEach(function(die){
+            die.classList.remove('shake');
+        });
+
+        let dieOneValue = Math.floor(Math.random()*6);
+        let dieTwoValue = Math.floor(Math.random()*6);
+
+        document.querySelector("#die-1").setAttribute("src", imgs[dieOneValue]);
+        document.querySelector("#die-2").setAttribute("src", imgs[dieTwoValue]);
+
+    },2000);
+}
+
+timesToShuffleButton.addEventListener('click',roll);
 randomizeButton.addEventListener('click', showArray);
 addButton.addEventListener('click', addNameOnList);
 document.addEventListener('keydown',  enterPressed);
