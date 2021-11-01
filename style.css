@@ -163,3 +163,10 @@ img{
         transform: rotate(8deg);
     }
 }
+
+
+@media screen and (max-width: 500px){
+    select{
+        height: 250px;
+    }
+}
